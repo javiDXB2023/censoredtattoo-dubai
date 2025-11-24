@@ -99,34 +99,38 @@ wow js active
 owl active
 ------------------------------ */ 
 	//Product Slider
-	$(".product-slider").owlCarousel({
-		autoPlay: false, 
-		slideSpeed:2000,
-		pagination:false,
-		navigation:true,	  
-		items : 4,
-		/* transitionStyle : "fade", */    /* [This code for animation ] */
-		navigationText:["<i class='fa fa-long-arrow-left'></i>","<i class='fa fa-long-arrow-right'></i>"],
-		itemsDesktop : [1199,4],
-		itemsDesktopSmall : [992,3],
-		itemsTablet: [768,2],
-		itemsMobile : [480,1],
-	});
+        if ($(".product-slider").length) {
+                $(".product-slider").owlCarousel({
+                        autoPlay: false,
+                        slideSpeed:2000,
+                        pagination:false,
+                        navigation:true,
+                        items : 4,
+                        /* transitionStyle : "fade", */    /* [This code for animation ] */
+                        navigationText:["<i class='fa fa-long-arrow-left'></i>","<i class='fa fa-long-arrow-right'></i>"],
+                        itemsDesktop : [1199,4],
+                        itemsDesktopSmall : [992,3],
+                        itemsTablet: [768,2],
+                        itemsMobile : [480,1],
+                });
+        }
 
-	//Testimonial Slider
-	$(".testimonial-slider").owlCarousel({
-		autoPlay: false, 
-		slideSpeed:2000,
-		pagination:false,
-		navigation:true,	  
-		items : 1,
-		/* transitionStyle : "fade", */    /* [This code for animation ] */
-		navigationText:["<i class='fa fa-long-arrow-left'></i>","<i class='fa fa-long-arrow-right'></i>"],
-		itemsDesktop : [1199,1],
-		itemsDesktopSmall : [992,1],
-		itemsTablet: [768,1],
-		itemsMobile : [480,1],
-	});
+        //Testimonial Slider
+        if ($(".testimonial-slider").length) {
+                $(".testimonial-slider").owlCarousel({
+                        autoPlay: false,
+                        slideSpeed:2000,
+                        pagination:false,
+                        navigation:true,
+                        items : 1,
+                        /* transitionStyle : "fade", */    /* [This code for animation ] */
+                        navigationText:["<i class='fa fa-long-arrow-left'></i>","<i class='fa fa-long-arrow-right'></i>"],
+                        itemsDesktop : [1199,1],
+                        itemsDesktopSmall : [992,1],
+                        itemsTablet: [768,1],
+                        itemsMobile : [480,1],
+                });
+        }
 /*--------------------------
  counterUp active
 ---------------------------- */
@@ -137,9 +141,11 @@ owl active
 /*--------------------------
 bxslider active
 ---------------------------- */   
-	$('.bx-demo').bxSlider({
-		pagerCustom: '.bx-thumb'
-	});
+        if ($('.bx-demo').length) {
+                $('.bx-demo').bxSlider({
+                        pagerCustom: '.bx-thumb'
+                });
+        }
 	
 /*--------------------------
 nice Select active
@@ -150,53 +156,58 @@ nice Select active
 /*----------------------------
 isotope active
 ------------------------------ */     
-	var $grid = $('.grid').isotope({
-    itemSelector: '.grid-item',
-    stagger: 30
-  });
+        var $grid = $('.grid');
+        if ($grid.length) {
+                $grid.isotope({
+                        itemSelector: '.grid-item',
+                        stagger: 30
+                });
 
-  $('.filter-demo').on( 'click', '.button', function() {
-    var filterValue = $(this).attr('data-filter');
-    $grid.isotope({ filter: filterValue });
-  });
+                $('.filter-demo').on( 'click', '.button', function() {
+                        var filterValue = $(this).attr('data-filter');
+                        $grid.isotope({ filter: filterValue });
+                });
 
-  // change is-checked class on buttons
+                // change is-checked class on buttons
 
-  $('.filter').each( function( i, buttonGroup ) {
-    var $buttonGroup = $( buttonGroup );
-    $buttonGroup.on( 'click', '.button', function() {
-      $buttonGroup.find('.is-checked').removeClass('is-checked');
-      $( this ).addClass('is-checked');
-    });
-  });
+                $('.filter').each( function( i, buttonGroup ) {
+                        var $buttonGroup = $( buttonGroup );
+                        $buttonGroup.on( 'click', '.button', function() {
+                                $buttonGroup.find('.is-checked').removeClass('is-checked');
+                                $( this ).addClass('is-checked');
+                        });
+                });
+        }
 
 /*----------------------------
 magnific Popup active
 ------------------------------ */
-	$('#gallery').magnificPopup({
-		delegate: '.g-link',
-		type: 'image',
-		closeOnContentClick: false,
-		closeBtnInside: false,
-		mainClass: 'mfp-with-zoom mfp-img-mobile',
-		image: {
-			verticalFit: true,
-			titleSrc: function(item) {
-				return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
-			}
-		},
-		gallery: {
-			enabled: true
-		},
-		zoom: {
-			enabled: true,
-			duration: 300, // don't foget to change the duration also in CSS
-			opener: function(element) {
-				return element.find('img');
-			}
-		}
-		
-	});
+        if ($('#gallery').length) {
+                $('#gallery').magnificPopup({
+                        delegate: '.g-link',
+                        type: 'image',
+                        closeOnContentClick: false,
+                        closeBtnInside: false,
+                        mainClass: 'mfp-with-zoom mfp-img-mobile',
+                        image: {
+                                verticalFit: true,
+                                titleSrc: function(item) {
+                                        return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
+                                }
+                        },
+                        gallery: {
+                                enabled: true
+                        },
+                        zoom: {
+                                enabled: true,
+                                duration: 300, // don't foget to change the duration also in CSS
+                                opener: function(element) {
+                                        return element.find('img');
+                                }
+                        }
+
+                });
+        }
 
 	//Video Play
 	$('.video-play-icon').magnificPopup({
